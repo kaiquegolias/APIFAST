@@ -11,16 +11,16 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
+        url: "http://localhost:3000",  // URL para ambiente local
         description: "Servidor Local",
       },
       {
-        url: "https://apivai-1.onrender.com",
+        url: "https://apivai-1.onrender.com",  // URL para ambiente de produção
         description: "Servidor de Produção",
       },
     ],
   },
-  apis: ["./Server.js"], // Certifique-se de que o caminho está correto
+  apis: ["./server.js"], // Caminho correto para o arquivo com as rotas
 };
 
 const swaggerDocs = swaggerJsDoc(options);
