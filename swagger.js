@@ -20,7 +20,7 @@ const options = {
       },
     ],
   },
-  apis: ["./server.js"],
+  apis: ["./Server.js"], // Certifique-se de que o caminho está correto
 };
 
 const swaggerDocs = swaggerJsDoc(options);
