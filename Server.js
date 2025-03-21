@@ -6,7 +6,14 @@ const { swaggerUi, swaggerDocs } = require("./swagger");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Habilitando CORS
+const corsOptions = {
+  origin: "*",  // Permite qualquer origem. Caso queira restringir, substitua "*" pelo domínio desejado (por exemplo, "https://apivai-1.onrender.com").
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Rota da documentação Swagger
