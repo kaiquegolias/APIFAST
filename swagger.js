@@ -20,7 +20,7 @@ const options = {
       },
     ],
   },
-  apis: ["./Server.js"], // Caminho correto para o arquivo com as rotas
+  apis: ["./server.js"], // Caminho correto para o arquivo com as rotas
 };
 
 const swaggerDocs = swaggerJsDoc(options);
