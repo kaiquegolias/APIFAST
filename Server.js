@@ -22,6 +22,11 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Simulação de um banco de dados em memória
 let materiais = [];
 
+// Função para gerar um ID aleatório de até 4 dígitos
+function gerarIdAleatorio() {
+    return Math.floor(Math.random() * 9000) + 1000; // Gera um número entre 1000 e 9999
+}
+
 /**
  * @swagger
  * tags:
@@ -83,8 +88,14 @@ app.post("/api/materiais", (req, res) => {
         return res.status(409).json({ erro: "Código de barras já cadastrado." });
     }
 
+    // Gerar um ID único
+    let id;
+    do {
+        id = gerarIdAleatorio();
+    } while (materiais.some((material) => material.id === id)); // Garante que o ID seja único
+
     const novoMaterial = { 
-        id: materiais.length + 1, 
+        id, // Usa o ID gerado
         nomeProduto, 
         quantidadePorCaixa, 
         quantidadeUnitaria, 
